@@ -12,6 +12,8 @@ set tabstop=4 softtabstop=4
 set noerrorbells
 set shiftwidth=4
 set noswapfile
+filetype plugin on
+syntax on
 
 
 let mapleader=" "
@@ -56,7 +58,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 " Plugin 'scrooloose/nerdtree'
-"Plugin 'dracula/vim', { 'name': 'dracula' }
+" Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mbbill/undotree'
 Plugin 'puremourning/vimspector'

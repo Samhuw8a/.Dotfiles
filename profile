@@ -1,7 +1,3 @@
-#züg vor em prompt
-
-# fortune | cowsay -s -f tux |lolcat
-clear
 neofetch
 
 HOST_NAME=Samuel
@@ -34,51 +30,43 @@ PROMPT_COMMAND=print_before_the_prompt
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 PS1=" > "
 
-alias c="clear"
-alias py="python3"
-alias bpy="bpython"
-alias subl="/mnt/c//Programme/Sublime\ Text/subl.exe"
-alias v="vim"
-alias la="ls -la"
-alias da="deactivate"
-
-home(){
-	cd /mnt/c/Users/Samuel_Huwiler
-}
-
-cd_rp (){
-	cd /mnt/c/Users/Samuel_Huwiler/'OneDrive - sluz'/Dokumente/GitHub/
-}
-
-mkcd ()
+function mkcd()
 {
-  mkdir -p -- "$1" && cd -P -- "$1"
+	mkdir $1 && cd $1
 }
-cd_prg (){
-        cd /mnt/c/Users/Samuel_Huwiler/'OneDrive - sluz'/Dokumente/GitHub/Programieren
-        }
 
-mkenv(){
+function mkenv ()
+{
 	tmp=$PWD
 	cd ~/Virtuele_envs
 	python3 -m venv env_$1
-	cd "$TMP"
-}
+	cd "$tmp"
 
-env ()
+}
+function env ()
 {
 	source ~/Virtuele_envs/env_$1/bin/activate
 }
 
-envcd ()
+function envcd ()
 {
 	cd ~/Virtuele_envs/env_$1
 }
 
-server ()
-{
-	open http://localhost:$2
-	python3 -m http.server -d $1 $2
-
+function ptsd (){
+python3 ~/Programieren/ptsd/ptsd.py $1
 }
 
+function server ()
+{
+	open http://localhost:$2
+	python3 -m http.server -d $1 $2 
+	
+}
+
+alias c="clear"
+alias envls="ls ~/Virtuele_envs/"
+alias py="python3"
+alias v="vim"
+alias gcc="gcc-11"
+alias la="ls -la"
