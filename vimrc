@@ -76,6 +76,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'gryf/pylint-vim' 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'junegunn/fzf'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,6 +84,9 @@ filetype plugin indent on    " required
 
 colorscheme gruvbox
 set background=dark
+
+" Auto pairs
+g:AutoPairs
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
