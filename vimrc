@@ -28,6 +28,7 @@ inoremap ? ?<C-g>u
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>t :NERDTree<CR>
 nnoremap <leader>ru :! python3 "%"<CR>
+nnoremap <leader>tp :! mypy "%"<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>j :wincmd j<CR>
