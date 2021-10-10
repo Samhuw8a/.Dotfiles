@@ -1,5 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+filetype plugin on
+syntax on
+
 set smartindent
 set nu
 set relativenumber
@@ -12,12 +15,11 @@ set tabstop=4 softtabstop=4
 set noerrorbells
 set shiftwidth=4
 set noswapfile
-filetype plugin on
-syntax on
-
 
 let mapleader=" "
 nnoremap Y y
+
+au BufRead,BufNewFile *.ptsd set syntax=ptsd
 
 "UNdo break points
 inoremap , ,<C-g>u
@@ -73,11 +75,12 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'reservim/nerdtree'
-Plugin 'vim-syntastic/syntastic' 
+Plugin 'vim-syntastic/syntastic'
 Plugin 'gryf/pylint-vim' 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'junegunn/fzf'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'psliwka/vim-smoothie'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,9 +90,8 @@ colorscheme gruvbox
 set background=dark
 
 " Auto pairs
-g:AutoPairs
+" g:AutoPairs
 
-set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 

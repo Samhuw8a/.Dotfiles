@@ -7,6 +7,9 @@ export PATH=$PATH:$HOME/bin
 export HISTSIZE=5000
 export HISTFILESIZE=10000
 
+# Vi mode
+set -o vi
+
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
