@@ -16,6 +16,22 @@ set noerrorbells
 set shiftwidth=4
 set noswapfile
 
+" mouse
+set mouse=a
+let g:is_mouse_enabled = 1
+noremap <silent> <Leader>M :call ToggleMouse()<CR>
+function ToggleMouse()
+    if g:is_mouse_enabled == 1
+        echo "Mouse OFF"
+        set mouse=
+        let g:is_mouse_enabled = 0
+    else
+        echo "Mouse ON"
+        set mouse=a
+        let g:is_mouse_enabled = 1
+    endif
+endfunction
+
 let mapleader=" "
 nnoremap Y y
 
@@ -81,6 +97,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'junegunn/fzf'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'psliwka/vim-smoothie'
+Plugin 'vim-scripts/indentpython.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
