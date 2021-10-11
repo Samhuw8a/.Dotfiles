@@ -15,6 +15,12 @@ set tabstop=4 softtabstop=4
 set noerrorbells
 set shiftwidth=4
 set noswapfile
+<<<<<<< Updated upstream
+=======
+"filetype plugin on
+"	syntax on
+
+>>>>>>> Stashed changes
 
 let mapleader=" "
 nnoremap Y y
