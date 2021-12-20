@@ -18,11 +18,11 @@ set noswapfile
 set foldmethod=syntax
 au BufWinEnter *.py set foldmethod=indent
 autocmd BufWinEnter * silent! :%foldopen!
+au BufRead,BufNewFile *.ptsd set syntax=ptsd
 
 " mouse
 set mouse=a
 let g:is_mouse_enabled = 1
-noremap <silent> <Leader>M :call ToggleMouse()<CR>
 function ToggleMouse()
     if g:is_mouse_enabled == 1
         echo "Mouse OFF"
@@ -34,11 +34,11 @@ function ToggleMouse()
         let g:is_mouse_enabled = 1
     endif
 endfunction
+noremap <silent> <Leader>M :call ToggleMouse()<CR>
 
 let mapleader=" "
 nnoremap Y y
 
-au BufRead,BufNewFile *.ptsd set syntax=ptsd
 
 "UNdo break points
 inoremap , ,<C-g>u
