@@ -8,7 +8,7 @@ export HISTSIZE=5000
 export HISTFILESIZE=10000
 
 # Vi mode
-set -o vi
+# set -o vi
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
@@ -73,3 +73,6 @@ alias py="python3"
 alias v="vim"
 alias gcc="gcc-11"
 alias la="ls -la"
+alias da="deactivate"
+alias fm="vifm"
+alias cl="tty-clock"

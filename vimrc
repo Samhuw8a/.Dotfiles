@@ -15,6 +15,9 @@ set tabstop=4 softtabstop=4
 set noerrorbells
 set shiftwidth=4
 set noswapfile
+set foldmethod=syntax
+au BufWinEnter *.py set foldmethod=indent
+autocmd BufWinEnter * silent! :%foldopen!
 
 " mouse
 set mouse=a
@@ -45,14 +48,18 @@ inoremap ? ?<C-g>u
 
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>t :NERDTree<CR>
-nnoremap <leader>ru :! python3 "%"<CR>
-nnoremap <leader>tp :! mypy "%"<CR>
+nnoremap <leader>rp :! mypy --disallow-untyped-calls % && python3 "%"<CR>
+nnoremap <leader>ru :! make<CR>
+nnoremap <leader>tp :! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs "%"<CR>
+nnoremap <leader>rg :! go build "%""<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR> 
 nnoremap <leader>sv :wincmd v<CR>
 nnoremap <leader>ss :wincmd s<CR>
+nnoremap <leader>fa zA
+nnoremap <leader>fl za
 
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
