@@ -1,0 +1,8 @@
+#!/bin/bash
+# pushd $DOTFILES
+for folder in $(ls -d */ | cut -f1 -d'/'| sed "s/,/ /g")
+do
+    stow -D $folder
+    stow $folder
+done
+# popd

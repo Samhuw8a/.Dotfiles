@@ -1,0 +1,11 @@
+
+
+
+
+
+source ~/.profile
+
+
+
+
+
