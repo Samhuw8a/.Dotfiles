@@ -7,7 +7,7 @@ neofetch
 HOST_NAME=Samuel
 
 export PATH=$PATH:$HOME/bin
-eval "$(zoxide init bash)"
+# eval "$(zoxide init bash)"
 
 export HISTSIZE=5000
 export HISTFILESIZE=10000
@@ -42,6 +42,10 @@ printf "\n $txtblu%s: $bldpur%s $txtgrn%s $txtpur%s\n$txtrst" "$HOST_NAME" "$dir
 PROMPT_COMMAND=print_before_the_prompt
 PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 PS1=" > "
+
+function cd_rp(){
+	cd /mnt/c/Users/Samuel_Huwiler/'OneDrive - sluz'/Dokumente/GitHub
+}
 
 function mkcd()
 {

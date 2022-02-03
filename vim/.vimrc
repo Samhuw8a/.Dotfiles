@@ -105,7 +105,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'szw/vim-maximizer'
 Plugin 'preservim/nerdcommenter'
-Plugin 'neoclide/coc.nvim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin 'reservim/nerdtree'
 Plugin 'vim-syntastic/syntastic'
