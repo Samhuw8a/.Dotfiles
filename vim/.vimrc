@@ -23,7 +23,6 @@ autocmd BufWinEnter,BufRead * silent! :%foldopen!
 " mouse
 set mouse=a
 let g:is_mouse_enabled = 1
-noremap <silent> <Leader>M :call ToggleMouse()<CR>
 function ToggleMouse()
     if g:is_mouse_enabled == 1
         echo "Mouse OFF"
@@ -50,11 +49,13 @@ inoremap ? ?<C-g>u
 nnoremap ö )
 nnoremap ä (
 
+noremap <silent> <Leader>M :call ToggleMouse()<CR>
+ 
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 
-nnoremap <leader>rp :! mypy --ignore-missing-imports --disallow-untyped-calls % && python3 "%"<CR>
-nnoremap <leader>ru :! make<CR>
+nnoremap <leader>rp :! mypy --ignore-missing-imports --disallow-untyped-calls % && python3.10 "%"<CR>
+nnoremap <leader>ru :! python3.10 "%"<CR>
 nnoremap <leader>tp :! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs "%"<CR>
 nnoremap <leader>rg :! go run "%"<CR>
 
@@ -70,7 +71,6 @@ nnoremap <leader>fl za
 map  <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-
 nnoremap <leader>bl :bnext<CR>
 nnoremap <leader>bh :bprev<CR>
 nnoremap <leader>tr :below vert term<CR>
@@ -110,6 +110,7 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " Plugin 'reservim/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'gryf/pylint-vim' 
+Plugin 'zah/nim.vim'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'

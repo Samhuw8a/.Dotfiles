@@ -112,7 +112,7 @@ n ()
 
 alias c="clear"
 alias envls="ls ~/Virtuele_envs/"
-alias py="python3"
+alias py="python3.10"
 alias v="vim"
 alias gcc="gcc-11"
 alias la="n"
