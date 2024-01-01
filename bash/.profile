@@ -7,6 +7,9 @@ neofetch
 HOST_NAME=Samuel
 
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin
+export EDITOR=/usr/bin/nvim
+
 # eval "$(zoxide init bash)"
 
 export HISTSIZE=5000
@@ -112,8 +115,8 @@ n ()
 
 alias c="clear"
 alias envls="ls ~/Virtuele_envs/"
-alias py="python3.10"
-alias v="vim"
+alias py="python3.11"
+alias v="nvim"
 alias gcc="gcc-11"
 alias la="n"
 alias da="deactivate"
@@ -134,3 +137,5 @@ alias gpsh='git push'
 alias gss='git status -s'
 alias gs='echo ""; echo "*********************************************"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

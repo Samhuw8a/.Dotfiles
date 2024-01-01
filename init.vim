@@ -11,12 +11,15 @@ set mouse=a
 set nowrap
 set smartcase
 set incsearch
+set nohlsearch
 set encoding=UTF-8
 set tabstop=4 softtabstop=4
 set noerrorbells
+set scrolloff=8
 set shiftwidth=4
 set noswapfile
 set foldmethod=syntax
+set colorcolumn=88
 au BufNewFile,BufRead *.py set foldmethod=indent
 autocmd BufWinEnter,BufRead * silent! :%foldopen!
 
@@ -35,12 +38,15 @@ inoremap ? ?<C-g>u
 nnoremap ö )
 nnoremap ä (
 
-nnoremap <leader>u :UndotreeShow<CR> nnoremap <leader>t :TagbarToggle<CR>
 
 nnoremap <leader>rp :! mypy --ignore-missing-imports --disallow-untyped-calls % && python3.11 "%"<CR>
 nnoremap <leader>ru :! python3.11 "%"<CR>
 nnoremap <leader>tp :! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs "%"<CR>
 nnoremap <leader>rg :! go run "%"<CR>
+nnoremap <leader>bf :! black "%"<CR>
+nnoremap <leader>rs :! cargo run "%"<CR>
+
+nnoremap <leader>m :MaximizerToggle!<CR>
 
 nnoremap <leader>h  :wincmd h<CR>
 nnoremap <leader>l  :wincmd l<CR>
@@ -50,21 +56,19 @@ nnoremap <leader>sv :wincmd v<CR>
 nnoremap <leader>ss :wincmd s<CR>
 
 nnoremap <leader>f :NERDTreeToggle<CR>
-nnoremap <leader>ff :FZF<CR>
 
-map  <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
-inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
-inoremap <silent> <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+nnoremap <leader>ff :Telescope find_files<CR>
+nnoremap <leader>gf :Telescope git_files<CR>
+nnoremap <leader>t :Tagbar<CR>
+
 nnoremap <leader>bl :bnext<CR>
 nnoremap <leader>bh :bprev<CR>
 nnoremap <leader>tr :below vert term<CR>
 
-
 nnoremap <C-p> :GFiles<CR>
 xnoremap <leader>p "_dp 
+nnoremap <leader>rain :CellularAutomaton make_it_rain<CR>
+nnoremap <leader>gol :CellularAutomaton game_of_life<CR>
 
 " Git integration
 nmap <leader>gs :G<CR>
@@ -78,58 +82,70 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_theme ="angr"
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'mbbill/undotree'
-Plugin 'puremourning/vimspector'
-Plugin 'morhetz/gruvbox'
-Plugin 'bling/vim-airline'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'szw/vim-maximizer'
-Plugin 'preservim/nerdcommenter'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'preservim/nerdtree'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'gryf/pylint-vim'
-Plugin 'zah/nim.vim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'tribela/vim-transparent'
-Plugin 'Align'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'preservim/tagbar'
+Plug 'mbbill/undotree'
+Plug 'morhetz/gruvbox'
+Plug 'bling/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'szw/vim-maximizer'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+" Plug 'vim-syntastic/syntastic'
+" Plug 'neoclide/coc.nvim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'tribela/vim-transparent'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/tagbar'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'eandrju/cellular-automaton.nvim'
+
+"  Uncomment these if you want to manage LSP servers from neovim
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+" LSP Support
+Plug 'neovim/nvim-lspconfig'
+" Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
+
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
+
 
 colorscheme gruvbox
 set background=dark
 
-" Auto pairs
-" g:AutoPairs
 
-
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_python_checkers = ['mypy',  'pycodestyle', 'flake8']
-let g:syntastic_python_mypy_args = '--disallow-untyped-calls --disallow-untyped-defs --disallow-incomplete-defs --ignore-missing-imports'
-" let g:syntastic_python_checkers = ['pycodestyle']
-let g:Syntastic_enable_ballons = 1
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_python_checkers = ['mypy',  'pycodestyle', 'flake8']
+" let g:syntastic_python_mypy_args = '--disallow-untyped-calls --disallow-untyped-defs --disallow-incomplete-defs --ignore-missing-imports'
+" let g:syntastic_python_flake8_args = "--max-line-length=88 "
+" let g:syntastic_python_pycodestyle_args = "--ignore E501"
+" " let g:syntastic_python_checkers = ['pycodestyle']
+" let g:Syntastic_enable_ballons = 1
 
 let g:ctrlp_user_command=['.git/ ' ,'.git --git-dir=%s/.git ls-files -oc --executable-standart']
 let g:ctrlp_user_caching=0
@@ -182,6 +198,50 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " " Enable NERDCommenterToggle to check all selected lines is commented or not 
  let g:NERDToggleCheckAllLines = 1
 
-let g:coc_disable_startup_warning = 1
+lua <<EOF
+local lsp_zero = require('lsp-zero')
 
-nnoremap <leader>m :MaximizerToggle!<CR>
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp_zero.default_setup,
+  },
+})
+
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+			enabled =true,
+			maxLineLength = 88
+		},
+		flake8= {
+			enabled=true,
+			maxLineLength = 88,
+		},
+		pyright={enabled=false}
+      }
+    }
+  }
+}
+
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<Tab>'] = cmp_action.tab_complete(),
+    ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+  })
+}) 
+
+EOF
