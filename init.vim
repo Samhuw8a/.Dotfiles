@@ -37,13 +37,15 @@ inoremap ? ?<C-g>u
 
 nnoremap ö )
 nnoremap ä (
+nnoremap q: <nop>
+nnoremap Q <nop>
 
 
 nnoremap <leader>rp :! mypy --ignore-missing-imports --disallow-untyped-calls % && python3.11 "%"<CR>
 nnoremap <leader>ru :! python3.11 "%"<CR>
 nnoremap <leader>tp :! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs "%"<CR>
 nnoremap <leader>rg :! go run "%"<CR>
-nnoremap <leader>bf :! black "%"<CR>
+nnoremap <leader>fm :LspZeroFormat<CR>
 nnoremap <leader>rs :! cargo run "%"<CR>
 
 nnoremap <leader>m :MaximizerToggle!<CR>
@@ -228,7 +230,7 @@ require'lspconfig'.pylsp.setup{
 			enabled=true,
 			maxLineLength = 88,
 		},
-		pyright={enabled=false}
+		pyright={enabled=false},
       }
     }
   }
