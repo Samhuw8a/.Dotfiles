@@ -1,0 +1,263 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+filetype plugin on
+syntax on
+
+set smartindent
+set nu
+set relativenumber
+set mouse=a	
+set nowrap
+set smartcase
+set incsearch
+set nohlsearch
+set encoding=UTF-8
+set tabstop=4 softtabstop=4
+set noerrorbells
+set scrolloff=8
+set shiftwidth=4
+set noswapfile
+set foldmethod=syntax
+set colorcolumn=88
+au BufNewFile,BufRead *.py set foldmethod=indent
+autocmd BufWinEnter,BufRead * silent! :%foldopen!
+
+
+let mapleader=" "
+nnoremap Y y
+
+"UNdo break points
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+
+nnoremap ö )
+nnoremap ä (
+nnoremap q: <nop>
+nnoremap Q <nop>
+
+
+" Scripting
+nnoremap <leader>rp :! mypy --ignore-missing-imports --disallow-untyped-calls % && python3.11 "%"<CR>
+nnoremap <leader>ru :! python3.11 "%"<CR>
+nnoremap <leader>rr :! ruby %<CR>
+nnoremap <leader>tp :! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs "%"<CR>
+
+" Buffer Formating
+nnoremap <leader>fm :LspZeroFormat<CR>
+" Rust Integration
+nnoremap <leader>rs :! cargo run "%"<CR>
+
+" Window commands
+nnoremap <leader>m :MaximizerToggle!<CR>
+nnoremap <leader>h  :wincmd h<CR>
+nnoremap <leader>l  :wincmd l<CR>
+nnoremap <leader>j  :wincmd j<CR>
+nnoremap <leader>k  :wincmd k<CR> 
+nnoremap <leader>sv :wincmd v<CR>
+nnoremap <leader>ss :wincmd s<CR>
+
+" File Browsing
+nnoremap <leader>f :NERDTreeToggle<CR>
+nnoremap <leader>ff :Telescope find_files<CR>
+nnoremap <leader>gf :GFiles<CR>
+
+" Tagbar 
+nnoremap <leader>t :Tagbar<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
+
+" Tab moving
+nnoremap <leader>bl :bnext<CR>
+nnoremap <leader>bh :bprev<CR>
+nnoremap <leader>tr :below vert term<CR>
+
+xnoremap <leader>p "_dp 
+
+" Fun
+nnoremap <leader>rain :CellularAutomaton make_it_rain<CR>
+nnoremap <leader>gol :CellularAutomaton game_of_life<CR>
+
+" Git integration
+nmap <leader>gs :G<CR>
+nmap <leader>gl :Git commit<CR>
+nmap <leader>gh :Git push<CR>
+
+"Commening
+map <leader>cc <Plug>NERDCommenterToggle
+
+call plug#begin()
+Plug 'mbbill/undotree'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'bling/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'szw/vim-maximizer'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'tribela/vim-transparent'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/tagbar'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'eandrju/cellular-automaton.nvim'
+
+" Mason
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+" LSP Support
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
+Plug 'neovim/nvim-lspconfig'
+
+" Autocompletion
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" Snippets
+Plug 'dcampos/nvim-snippy'
+Plug 'honza/vim-snippets'
+Plug 'dcampos/cmp-snippy'
+" Plug 'github/copilot.vim'
+
+call plug#end()            " required
+filetype plugin indent on    " required
+
+set background=dark
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_theme = 'minimalist'
+
+lua <<EOF
+
+-- Default options:
+require("gruvbox").setup({
+  terminal_colors = true, -- add neovim terminal colors
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = {
+    strings = true,
+    emphasis = false,
+    comments = false,
+    operators = false,
+    folds = true,
+  },
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "soft", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+})
+vim.cmd("colorscheme gruvbox")
+
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp_zero.default_setup,
+  },
+})
+
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+			enabled =true,
+			maxLineLength = 88
+		},
+		flake8= {
+			enabled=true,
+			maxLineLength = 88,
+		},
+		pyright={enabled=false},
+      }
+    }
+  }
+}
+
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local snippy = require("snippy")
+
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        require('snippy').expand_snippet(args.body) -- For `snippy` users.
+      end,
+    },
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	  ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif snippy.can_expand_or_advance() then
+        snippy.expand_or_advance()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif snippy.can_jump(-1) then
+        snippy.previous()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+	  { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+
+EOF

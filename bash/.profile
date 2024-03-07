@@ -123,6 +123,7 @@ alias da="deactivate"
 alias f="n"
 alias cl="tty-clock"
 alias tm="tmux"
+alias lg="lazygit"
 
 alias ga='git add'
 alias gaa='git add .'
