@@ -34,16 +34,7 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {
-      lualine_a = {
-          {
-              'location',
-          }
-      },
-      lualine_b ={
-          {
-              'buffers'
-          }
-      }
+      lualine_a ={'buffers'}
   },
   winbar = {},
   inactive_winbar = {},
