@@ -1,6 +1,5 @@
 local vim = vim
 local Plug = vim.fn['plug#']
-
 vim.call('plug#begin')
 Plug('mbbill/undotree')
 Plug('ellisonleao/gruvbox.nvim')
@@ -40,6 +39,7 @@ Plug('hrsh7th/nvim-cmp')
 Plug('dcampos/nvim-snippy')
 Plug('honza/vim-snippets')
 Plug('dcampos/cmp-snippy')
+
 -- Plug 'github/copilot.vim'
 
 vim.call('plug#end')

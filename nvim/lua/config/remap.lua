@@ -15,13 +15,14 @@ vim.keymap.set("n", "<leader>h", "<cmd>wincmd h<CR>")
 vim.keymap.set("n", "<leader>l", "<cmd>wincmd l<CR>")
 vim.keymap.set("n", "<leader>j", "<cmd>wincmd j<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>wincmd k<CR>")
+vim.keymap.set("n", "<leader>m", "<cmd>MaximizerToggle<CR>")
 
 vim.keymap.set("n", "<leader>sv", "<cmd>wincmd v<CR>")
 vim.keymap.set("n", "<leader>ss", "<cmd>wincmd s<CR>")
 
 -- Tabs
-vim.keymap.set("n", "bl", "<cmd>bnext<CR>")
-vim.keymap.set("n", "bh", "<cmd>bprev<CR>")
+vim.keymap.set("n", "<leader>bl", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<leader>bh", "<cmd>bprev<CR>")
 
 -- terminal
 vim.keymap.set("n", "tr", "<cmd>below vert term<CR>")
