@@ -6,9 +6,10 @@ neofetch
 
 HOST_NAME=Samuel
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
-export EDITOR=/usr/bin/nvim
+export EDITOR=/opt/homebrew/bin/nvim
 
 # eval "$(zoxide init bash)"
 
@@ -114,8 +115,9 @@ n ()
 }
 
 alias c="clear"
+alias eth="cd ~/Desktop/ETH/1.\ Semester/"
 alias envls="ls ~/Virtuele_envs/"
-alias py="python3.11"
+alias py="python3.13"
 alias v="nvim"
 alias gcc="gcc-11"
 alias la="n"
@@ -139,3 +141,5 @@ alias gs='echo ""; echo "*********************************************"; echo -e
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"

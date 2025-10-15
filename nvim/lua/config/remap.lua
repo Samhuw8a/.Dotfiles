@@ -36,11 +36,13 @@ vim.keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>")
 vim.keymap.set("n", "<leader>cc", "NERDCommenterToggle")
 
 -- Scripting
-vim.keymap.set("n", "<leader>rp", "<cmd>! mypy --ignore-missing-imports --disallow-untyped-calls % && python3.11 %<CR>")
-vim.keymap.set("n", "<leader>ru", "<cmd>! python3.11 %<CR>")
+vim.keymap.set("n", "<leader>rp", "<cmd>! mypy --ignore-missing-imports --disallow-untyped-calls % && python3.13 %<CR>")
+vim.keymap.set("n", "<leader>ru", "<cmd>! python3.13 %<CR>")
 vim.keymap.set("n", "<leader>rr", "<cmd>! ruby %<CR>")
 vim.keymap.set("n", "<leader>tp",
     "<cmd>! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs %<CR>")
+-- java compiling
+vim.keymap.set("n", "<leader>cp", "<cmd>! java %<CR>")
 
 -- Buffer formating
 vim.keymap.set("n", "<leader>fm", "<cmd>LspZeroFormat<CR>")
