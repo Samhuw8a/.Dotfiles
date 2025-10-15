@@ -59,3 +59,9 @@ vim.keymap.set("n", "<leader>gl", "<cmd>Git commit<CR>")
 vim.keymap.set("n", "<leader>gh", "<cmd>Git pushdCR>")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+    expr = true,
+    replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true

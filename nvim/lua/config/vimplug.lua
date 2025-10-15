@@ -41,6 +41,7 @@ Plug('honza/vim-snippets')
 Plug('dcampos/cmp-snippy')
 
 Plug('github/copilot.vim')
-Plug('zbirenbaum/copilot-cmp')
+--Plug('zbirenbaum/copilot-cmp')
+--Plug('zbirenbaum/copilot.lua')
 
 vim.call('plug#end')
