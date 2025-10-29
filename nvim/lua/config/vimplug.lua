@@ -39,9 +39,9 @@ Plug('hrsh7th/nvim-cmp')
 Plug('dcampos/nvim-snippy')
 Plug('honza/vim-snippets')
 Plug('dcampos/cmp-snippy')
+Plug('onsails/lspkind-nvim')
+Plug('ray-x/cmp-treesitter')
 
 Plug('github/copilot.vim')
---Plug('zbirenbaum/copilot-cmp')
---Plug('zbirenbaum/copilot.lua')
 
 vim.call('plug#end')

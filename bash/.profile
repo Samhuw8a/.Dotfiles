@@ -9,6 +9,7 @@ HOST_NAME=Samuel
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export EDITOR=/opt/homebrew/bin/nvim
 
 # eval "$(zoxide init bash)"
@@ -124,7 +125,9 @@ alias la="n"
 alias da="deactivate"
 alias f="n"
 alias cl="tty-clock"
+alias ts="tmux new-session -A -s"
 alias tm="tmux"
+alias ta="tmux a"
 alias lg="lazygit"
 
 alias ga='git add'
@@ -143,3 +146,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+##
+# Your previous /Users/samuel/.profile file was backed up as /Users/samuel/.profile.macports-saved_2025-10-29_at_09:37:56
+##
+
+# MacPorts Installer addition on 2025-10-29_at_09:37:56: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

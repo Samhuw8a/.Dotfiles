@@ -1,11 +1,11 @@
 #!/bin/bash
 # pushd $DOTFILES
-for folder in $(ls -d */ | cut -f1 -d'/'| sed "s/,/ /g")
-do
-    stow -D $folder
-    stow $folder
-done
-
+cd ~/
+ln -s .../.Dotfiles/bash/
+ln -s .../.Dotfiles/tmux/
+ln -s .../.Dotfiles/vim/
 cd ../.config/
 ln -s ../.Dotfiles/nvim/
+ln -s ../.Dotfiles/kity/
+ln -s ../.Dotfiles/fancy-cat
 # popd
