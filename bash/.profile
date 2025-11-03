@@ -12,6 +12,32 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export EDITOR=/opt/homebrew/bin/nvim
 export NNN_OPENER=/Users/samuel/.config/nnn/plugins/nuke
+# Requieres nuke modification to use fancy-cat:
+#handle_pdf() {
+#    if [ "$GUI" -ne 0 ]; then
+#        if is_mac; then
+#            nohup open "${FPATH}" >/dev/null 2>&1 &
+#
+#
+#        elif type zathura >/dev/null 2>&1; then
+#            nohup zathura "${FPATH}" >/dev/null 2>&1 &
+#        else
+#            return
+#        fi
+#    elif type fancy-cat >/dev/null 2>&1; then
+#        fancy-cat "${FPATH}"
+#    elif type pdftotext >/dev/null 2>&1; then
+#        ## Preview as text conversion
+#        pdftotext -l 10 -nopgbrk -q -- "${FPATH}" - | eval "$PAGER"
+#    elif type mutool >/dev/null 2>&1; then
+#        mutool draw -F txt -i -- "${FPATH}" 1-10 | eval "$PAGER"
+#    elif type exiftool >/dev/null 2>&1; then
+#        exiftool "${FPATH}" | eval "$PAGER"
+#    else
+#        return
+#    fi
+#    exit 0
+#}
 
 # eval "$(zoxide init bash)"
 
