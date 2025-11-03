@@ -12,7 +12,9 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export EDITOR=/opt/homebrew/bin/nvim
 export NNN_OPENER=/Users/samuel/.config/nnn/plugins/nuke
-# Requieres nuke modification to use fancy-cat:
+
+
+# Nuke config for 'fancy-cat' pdf opening
 #handle_pdf() {
 #    if [ "$GUI" -ne 0 ]; then
 #        if is_mac; then
