@@ -11,6 +11,7 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export EDITOR=/opt/homebrew/bin/nvim
+export NNN_OPENER=/Users/samuel/.config/nnn/plugins/nuke
 
 # eval "$(zoxide init bash)"
 
@@ -121,7 +122,7 @@ alias envls="ls ~/Virtuele_envs/"
 alias py="python3.13"
 alias v="nvim"
 alias gcc="gcc-11"
-alias la="n"
+alias la="n -c"
 alias da="deactivate"
 alias f="n"
 alias cl="tty-clock"
