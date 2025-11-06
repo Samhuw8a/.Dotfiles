@@ -146,6 +146,7 @@ n ()
 
 alias c="clear"
 alias eth="cd ~/Desktop/ETH/1.\ Semester/"
+alias icloud=" cd /Users/samuel/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias envls="ls ~/Virtuele_envs/"
 alias py="python3.13"
 alias v="nvim"
