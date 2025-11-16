@@ -44,4 +44,6 @@ Plug('ray-x/cmp-treesitter')
 
 Plug('github/copilot.vim')
 
+--Plug('lervag/vimtex')
+
 vim.call('plug#end')
