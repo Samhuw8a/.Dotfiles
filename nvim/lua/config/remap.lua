@@ -42,7 +42,7 @@ vim.keymap.set("n", "<leader>rr", "<cmd>! ruby %<CR>")
 vim.keymap.set("n", "<leader>tp",
     "<cmd>! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs %<CR>")
 -- java compiling
-vim.keymap.set("n", "<leader>cp", "<cmd>! java %<CR>")
+vim.keymap.set("n", "<leader>cp", "<cmd>! javac -d ../bin *.java && java -cp ../bin %<CR>")
 
 -- Buffer formating
 vim.keymap.set("n", "<leader>fm", "<cmd>LspZeroFormat<CR>")
