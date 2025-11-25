@@ -1,4 +1,5 @@
-neofetch
+#neofetch
+fastfetch
 
 # cd /Users/Samuel/Programieren/Stundenplan
 # /Users/Samuel/Programieren/Stundenplan/main.py list
