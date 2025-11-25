@@ -1,11 +1,11 @@
 #!/bin/bash
-# pushd $DOTFILES
-cd ~/
-cp .Dotfiles/bash/.profile ./.profile
-cp .Dotfiles/bash/.bashrc ./.bashrc
-cp .Dotfiles/tmux/.tmux.conf ./.tmux.conf
-cp .Dotfiles/vim/.vimrc ./.vimrc
 
+# ~/ files
+stow -R tmux/
+stow -R bash/
+stow -R vim/
+
+# config folders
 cd ~/.config/
 ln -s ../.Dotfiles/nvim/
 ln -s ../.Dotfiles/kitty/
@@ -13,4 +13,3 @@ ln -s ../.Dotfiles/fancy-cat
 ln -s ../.Dotfiles/yabai
 ln -s ../.Dotfiles/skhd
 ln -s ../.Dotfiles/neofetch
-# popd
