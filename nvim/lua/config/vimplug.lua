@@ -43,6 +43,7 @@ Plug('onsails/lspkind-nvim')
 Plug('ray-x/cmp-treesitter')
 
 Plug('github/copilot.vim')
+Plug('kaarmu/typst.vim')
 
 --Plug('lervag/vimtex')
 
