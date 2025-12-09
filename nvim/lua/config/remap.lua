@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>ss", "<cmd>wincmd s<CR>")
 vim.keymap.set("n", "<leader>bl", "<cmd>bnext<CR>")
 vim.keymap.set("n", "<leader>bh", "<cmd>bprev<CR>")
 
--- termina 
+-- terminal
 vim.keymap.set("n", "tr", "<cmd>below vert term<CR>")
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -34,12 +34,12 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<leader>rain", "<cmd>CellularAutomaton make_it_rain<CR>")
 vim.keymap.set("n", "<leader>gol", "<cmd>CellularAutomaton game_of_life<CR>")
+
 vim.keymap.set("n", "<leader>cc", "NERDCommenterToggle")
 
 -- Scripting
 vim.keymap.set("n", "<leader>rp", "<cmd>! mypy --ignore-missing-imports --disallow-untyped-calls % && python3.13 %<CR>")
 vim.keymap.set("n", "<leader>ru", "<cmd>! python3.13 %<CR>")
-vim.keymap.set("n", "<leader>rr", "<cmd>! ruby %<CR>")
 vim.keymap.set("n", "<leader>tp",
     "<cmd>! mypy --disallow-untyped-calls  --disallow-untyped-defs --disallow-incomplete-defs %<CR>")
 -- java compiling
@@ -65,9 +65,12 @@ vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
     expr = true,
     replace_keycodes = false
 })
+
 vim.g.copilot_no_tab_map = true
-vim.g.copilot_enabled = false
+vim.g.copilot_enabled = true
 vim.g.tagbar_ctags_bin = "/opt/homebrew/bin/ctags"
 
-vim.keymap.set("n","<C-i>","<C-a>")
-vim.keymap.set("n","<C-a>","")
+vim.keymap.set("n", "<C-i>", "<C-a>")
+vim.keymap.set("n", "<C-a>", "")
+
+vim.keymap.set("n","<leader>fl", "<cmd>foldclose<CR>")

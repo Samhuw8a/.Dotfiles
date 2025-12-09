@@ -1,5 +1,6 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 vim.opt.mouse = "a"
 vim.opt.wrap = false
 vim.opt.smartcase = true
@@ -10,9 +11,13 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.foldmethod = "syntax"
 vim.opt.hlsearch = false
 vim.opt.incsearch = false
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
 vim.opt.scrolloff = 8
+
+vim.opt.foldenable = true
+vim.opt.foldmethod = "indent"
+--vim.opt.foldmethod = "expr"
+--vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

@@ -1,5 +1,6 @@
 local vim = vim
 local Plug = vim.fn['plug#']
+
 vim.call('plug#begin')
 Plug('mbbill/undotree')
 Plug('ellisonleao/gruvbox.nvim')
@@ -19,15 +20,15 @@ Plug('airblade/vim-gitgutter')
 Plug('tpope/vim-fugitive')
 Plug('preservim/tagbar')
 Plug('nvim-lua/plenary.nvim')
-Plug('nvim-telescope/telescope.nvim', { ['tag']= '0.1.4' })
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.4' })
 
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug('eandrju/cellular-automaton.nvim')
 
 Plug('williamboman/mason.nvim')
 Plug('williamboman/mason-lspconfig.nvim')
 
-Plug('VonHeikemen/lsp-zero.nvim', {['branch']= 'v3.x'})
+Plug('VonHeikemen/lsp-zero.nvim', { ['branch'] = 'v3.x' })
 Plug('neovim/nvim-lspconfig')
 
 Plug('hrsh7th/cmp-nvim-lsp')
@@ -44,6 +45,9 @@ Plug('ray-x/cmp-treesitter')
 
 Plug('github/copilot.vim')
 Plug('kaarmu/typst.vim')
+
+--Plug('ray-x/guihua.lua', { ['do'] = 'cd lua/fzy && make' })
+--Plug('ray-x/navigator.lua')
 
 --Plug('lervag/vimtex')
 
