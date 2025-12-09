@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "Y", "y")
+-- exit Terminal-Mode vim.keymap.set("t","<leader><ESC>", "<C-\\><C-n>", {noremap=true})
 
 -- Undo breakpoints
 vim.keymap.set("i", ",", ",<C-g>u")
@@ -24,7 +25,7 @@ vim.keymap.set("n", "<leader>ss", "<cmd>wincmd s<CR>")
 vim.keymap.set("n", "<leader>bl", "<cmd>bnext<CR>")
 vim.keymap.set("n", "<leader>bh", "<cmd>bprev<CR>")
 
--- terminal
+-- termina 
 vim.keymap.set("n", "tr", "<cmd>below vert term<CR>")
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -50,7 +51,7 @@ vim.keymap.set("n", "<leader>fm", "<cmd>LspZeroFormat<CR>")
 -- Files
 vim.keymap.set("n", "<leader>gf", "<cmd>GFiles<CR>")
 
-vim.keymap.set("n", "<leader>t", "<cmd>Tagbar<CR>")
+vim.keymap.set("n", "<leader>t<leader>", "<cmd>Tagbar<CR>")
 vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
 
 -- Git
@@ -66,3 +67,7 @@ vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
 })
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_enabled = false
+vim.g.tagbar_ctags_bin = "/opt/homebrew/bin/ctags"
+
+vim.keymap.set("n","<C-i>","<C-a>")
+vim.keymap.set("n","<C-a>","")
