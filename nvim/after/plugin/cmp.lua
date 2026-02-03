@@ -1,7 +1,7 @@
 local has_words_before = function()
     unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    local line, col = unpack(vimr.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vimr.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local snippy = require("snippy")
@@ -73,7 +73,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'snippy',   priority = 100 }, -- For snippy users.
         { name = 'treesitter',   priority = 50 }, -- For snippy users.
-        { name = 'nvim_lsp', priority = 50 },
+        { name = 'nvim_lsp', priority = 69 },
     }, {
         { name = 'buffer' },
     })

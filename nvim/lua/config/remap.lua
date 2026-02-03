@@ -59,7 +59,7 @@ vim.keymap.set("n", "<leader>gs", "<cmd>G<CR>")
 vim.keymap.set("n", "<leader>gl", "<cmd>Git commit<CR>")
 vim.keymap.set("n", "<leader>gh", "<cmd>Git pushdCR>")
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
     expr = true,
@@ -67,7 +67,7 @@ vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
 })
 
 vim.g.copilot_no_tab_map = true
-vim.g.copilot_enabled = true
+vim.g.copilot_enabled = false
 vim.g.tagbar_ctags_bin = "/opt/homebrew/bin/ctags"
 
 vim.keymap.set("n", "<C-i>", "<C-a>")
