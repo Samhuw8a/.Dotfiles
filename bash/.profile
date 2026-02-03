@@ -174,6 +174,7 @@ alias gpsh='git push'
 alias gss='git status -s'
 alias gs='echo ""; echo "*********************************************"; echo "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
 alias fc='fancy-cat'
+alias z="zathurarun"
 
 alias ctags="`brew --prefix`/bin/ctags"
 

@@ -13,3 +13,4 @@ ln -s ../.Dotfiles/fancy-cat
 ln -s ../.Dotfiles/yabai
 ln -s ../.Dotfiles/skhd
 ln -s ../.Dotfiles/neofetch
+ln -s ../.Dotfiles/zathura
