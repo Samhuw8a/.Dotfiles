@@ -175,6 +175,7 @@ alias gss='git status -s'
 alias gs='echo ""; echo "*********************************************"; echo "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
 alias fc='fancy-cat'
 alias z="zathurarun"
+alias typsinit="typst init @preview/adaptable-pset:0.2.0"
 
 alias ctags="`brew --prefix`/bin/ctags"
 
